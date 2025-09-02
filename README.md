@@ -1,5 +1,5 @@
 # Hifzly – A Personalised Qur’an Memorisation Planner
-#### Video Demo: <URL HERE>
+#### [Video Demo](https://www.youtube.com/watch?v=eZeSXE0ZX70)
 #### Description:
 
 **Hifzly** is a custom-built web app designed to help users memorise the Qur’an in a structured, efficient, and personalised way. It generates day-by-day memorisation schedules based on the user’s preferences — including start point, daily ayah goal, and whether revision should be included — and presents it through a minimalist dashboard that prioritises ease of use.
