@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://cdn.tailwindcss.com"></script>
+<title>Create Your Hifz Plan</title>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<!-- Surah Selection -->
+  <header class="absolute inset-x-0 top-0 z-50">
+    <nav class="flex items-center justify-between p-6 lg:px-8 bg-white" aria-label="Global">
+      <div class="flex lg:flex-1 bg-white">
+        <a href="/homepage" class="-m-1.5 p-1.5 flex items-center">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Hifzly logo" class="h-10">
+        </a>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="/plan" class="text-sm font-semibold text-gray-900">Dashboard</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="/logout" class="text-sm font-semibold text-gray-900">Log Out <span>&rarr;</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <div class = "pt-24 bg-white">
+  <section class="py-24 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">Create Your Hifz Plan</h2>
+      <p class="text-lg text-gray-600 mb-10">Tell us how you'd like to memorise. We'll build a custom lesson plan for you.</p>
+
+    <form action="/form" method="POST" class="space-y-6 text-left">
+      <!-- Surah -->
+      <div>
+        <label for="surah" class="block text-sm font-medium text-gray-700 mb-1">Choose a Surah</label>
+        <select id="surah" name="surah" required class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 transition">
+          <option disabled selected value="">-- Select --</option>
+          {% for surah in surahs %}
+          <option value="{{surah.number}}">{{surah.englishName}}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Starting Ayah -->
+      <div>
+        <label for="start_ayah" class="block text-sm font-medium text-gray-700 mb-1">Start from Ayah</label>
+        <input type="text" min="1" value = "1" id="start_ayah" name="start_ayah" required
+          class="w-full border border-gray-300 rounded-md px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+      </div>
+
+      <!-- Ayahs per Day -->
+      <div>
+        <label for="ayahs_per_day" class="block text-sm font-medium text-gray-700 mb-1">Ayahs per Day</label>
+        <input type="number" min="1" default = "1" id="ayahs_per_day" name="ayahs_per_day" required
+          class="w-full border border-gray-300 rounded-md px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+      </div>
+
+      <!-- Revision Toggle
+      <div class="flex items-center">
+        <input id="revision" name="revision" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+        <label for="revision" class="ml-2 block text-sm text-gray-700">Include Revision</label>
+      </div>
+
+
+      <!-- Submit Button -->
+      <div class="pt-4">
+        <button type="submit"
+          class="w-full rounded-md bg-indigo-600 px-6 py-3 text-white font-semibold hover:bg-indigo-500 transition">
+          Create Plan
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+</div>
+
+</body>
+</html>

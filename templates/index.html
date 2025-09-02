@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<main class="relative isolate px-6 pt-36 lg:px-8">
+
+  <!-- Hero Gradient BG -->
+  <div class="absolute inset-x-0 -top-40 -z-10 blur-3xl sm:-top-80">
+    <div class="relative left-[calc(50%-11rem)] w-[36.125rem] rotate-[30deg] bg-gradient-to-tr from-pink-300 to-indigo-400 opacity-30 sm:w-[72.1875rem]"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="mx-auto max-w-2xl py-32 text-center">
+    <h1 class="text-5xl font-bold tracking-tight sm:text-7xl">Your Personalised Hifz planner</h1>
+    <p class="mt-6 text-lg leading-8 text-gray-600">
+      Hifzly creates a daily memorisation plan tailored to your goals. Set your pace, choose your Surah — we handle the rest.
+    </p>
+    <div class="mt-10 flex items-center justify-center gap-x-6">
+      <a href="/signup" class="rounded-md bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500">Build My Plan</a>
+      <a href="#features" class="text-sm font-semibold text-gray-900">Learn more <span>&rarr;</span></a>
+    </div>
+  </div>
+
+  <!-- Bottom Gradient -->
+  <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 blur-3xl sm:top-[calc(100%-30rem)]">
+    <div class="relative left-[calc(50%+3rem)] w-[36.125rem] bg-gradient-to-tr from-pink-300 to-indigo-400 opacity-30 sm:w-[72.1875rem]"></div>
+  </div>
+
+  <!-- Wave Divider -->
+  <div class="relative -mt-16 z-10">
+    <svg class="w-full h-24" viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#ffffff" d="M0,32L80,48C160,64,320,96,480,101.3C640,107,800,85,960,90.7C1120,96,1280,128,1360,144L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z" />
+    </svg>
+  </div>
+
+  <!-- Features -->
+  <section id="features" class="py-20 px-6 bg-white text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-10 text-purple-700">💡 What You Get</h2>
+    <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div class="p-6 border rounded-xl shadow hover:shadow-lg transition">
+        <div class="text-4xl mb-4">🗓️</div>
+        <h3 class="font-bold text-lg">Smart Daily Lessons</h3>
+        <p class="text-sm mt-2 text-gray-600">Start from any surah, ayah, or juz. Get a complete breakdown in seconds.</p>
+      </div>
+      <div class="p-6 border rounded-xl shadow hover:shadow-lg transition">
+        <div class="text-4xl mb-4">🔁</div>
+        <h3 class="font-bold text-lg">Built-in Revision</h3>
+        <p class="text-sm mt-2 text-gray-600">We’ll soon add intelligent review schedules to keep old lessons fresh.</p>
+      </div>
+      <div class="p-6 border rounded-xl shadow hover:shadow-lg transition">
+        <div class="text-4xl mb-4">📖</div>
+        <h3 class="font-bold text-lg">Start Anywhere</h3>
+        <p class="text-sm mt-2 text-gray-600">Baqarah? Juz Amma? Random surahs? Your plan adapts to <b>you</b>, not the other way around.</p>
+      </div>
+      <div class="p-6 border rounded-xl shadow hover:shadow-lg transition">
+        <div class="text-4xl mb-4">🎯</div>
+        <h3 class="font-bold text-lg">Simple, Focused UI</h3>
+        <p class="text-sm mt-2 text-gray-600">No bloat. No distractions. Just a clean dashboard that keeps you on track.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="product" class="py-20 px-6 bg-purple-50 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-10 text-purple-700">🧠 How It Works</h2>
+    <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+      <div class="flex flex-col items-center">
+        <div class="text-5xl mb-4">✍️</div>
+        <h3 class="font-semibold text-lg">1. Fill the Form</h3>
+        <p class="text-sm mt-2 text-gray-600">Pick your starting Surah, daily ayah goal, and whether you want revision.</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="text-5xl mb-4">🧾</div>
+        <h3 class="font-semibold text-lg">2. Get Your Plan</h3>
+        <p class="text-sm mt-2 text-gray-600">We instantly generate a daily Hifz routine tailored to your input.</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="text-5xl mb-4">🎤</div>
+        <h3 class="font-semibold text-lg">3. Recite & Track</h3>
+        <p class="text-sm mt-2 text-gray-600">Soon: audio recitation, feedback, and spaced repetition powered by AI.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Hifzly -->
+  <section id="about" class="py-20 px-6 bg-white-50 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-purple-700">🛡️ Why Trust Hifzly?</h2>
+    <ul class="text-gray-700 space-y-4 mb-10 max-w-xl mx-auto">
+      <li>✅ 100% free and open source — no ads, no gimmicks</li>
+      <li>✅ Clean Qur’an data from Quran.com (verified ayah ranges)</li>
+      <li>✅ Recitation + spaced repetition coming soon</li>
+      <li>✅ Built by students who’ve been through the grind themselves</li>
+    </ul>
+    <blockquote class="italic text-gray-600 max-w-xl mx-auto">
+      “I finally have a system I can trust — this turned my Hifz into a habit.”<br><span class="not-italic font-semibold">– Beta tester</span>
+    </blockquote>
+  </section>
+
+  <!-- Final Call to Action -->
+  <section id="contact" class="py-20 px-6 bg-purple-50 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-purple-700">📅 Let’s build your Hifz routine</h2>
+    <p class="mb-8 text-gray-600 text-lg">Your journey starts in under 2 minutes.</p>
+    <div class="flex justify-center gap-4">
+      <a href="/signup" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-500 transition">Start Now</a>
+    </div>
+  </section>
+
+</main>
+{% endblock %}

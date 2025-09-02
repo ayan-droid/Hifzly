@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Home</title>
+  <link rel="icon" href="{{ url_for('static', filename='weblogo.png') }}">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="absolute inset-x-0 top-0 z-50">
+    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="/homepage" class="-m-1.5 p-1.5 flex items-center">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Hifzly logo" class="h-10">
+        </a>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="/plan" class="text-sm font-semibold text-gray-900">Dashboard</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="/logout" class="text-sm font-semibold text-gray-900">Log Out <span>&rarr;</span></a>
+      </div>
+    </nav>
+  </header>
+
+
+ <main class="relative isolate px-6 pt-36 lg:px-8">
+    <div class="absolute inset-x-0 -top-40 -z-10 blur-3xl sm:-top-80">
+      <div class="relative left-[calc(50%-11rem)] w-[36.125rem] rotate-[30deg] bg-gradient-to-tr from-pink-300 to-indigo-400 opacity-30 sm:w-[72.1875rem]"></div>
+    </div>
+
+    <div class="mx-auto max-w-2xl py-32 text-center">
+      <h1 class="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in">Welcome back,</h1>
+      <br>
+      <h1 class="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in">{{name}}!🌙</h1>
+
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Hifzly helps you recite, revise, and retain – using AI to track your progress and catch your mistakes in real-time.
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a href="/form" class="rounded-md bg-indigo-600 px-8 py-5 text-xl font-semibold text-white hover:bg-indigo-500">Create a new plan</a>
+    </div>
+
+    <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 blur-3xl sm:top-[calc(100%-30rem)]">
+      <div class="relative left-[calc(50%+3rem)] w-[36.125rem] bg-gradient-to-tr from-pink-300 to-indigo-400 opacity-30 sm:w-[72.1875rem]"></div>
+    </div>
+  </main>
+</body>
+</html>

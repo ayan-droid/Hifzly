@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Hifzly</title>
+  <link rel="icon" href="{{ url_for('static', filename='weblogo.png') }}">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="min-h-screen bg-white-100 p-6 font-sans">
+
+    <!-- Header -->
+    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="/homepage" class="-m-1.5 p-1.5 flex items-center">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Hifzly logo" class="h-10">
+        </a>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="/plan" class="text-sm font-semibold text-gray-900">Dashboard</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="/logout" class="text-sm font-semibold text-gray-900">Log Out <span>&rarr;</span></a>
+      </div>
+    </nav>
+    {% if not finished %}
+      <!-- Progress -->
+      <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h2 class="text-lg font-semibold text-gray-700 mb-2">Your Current Plan: Surah {{name}}</h2>
+        <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
+          <div class="bg-green-500 h-4 rounded-full" style="width: {{comp}}%;"></div>
+        </div>
+        <p class="text-gray-600">You've completed {{day-1}} out of {{all_days}} days</p>
+      </div>
+
+      <!-- Today’s Task -->
+      <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h3 class="text-xl font-bold mb-2 text-indigo-600">📅 Day {{day}}</h3>
+        <p class="text-gray-700">Memorise Surah {{name}}, {{ datas[day-1].start }}–{{ datas[day-1].end }}</p>
+        <form action = "/plan" method = "post">
+          <input type="hidden" name="day" value="{{day}}">
+          <button class="inline-block mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Mark as Done ✅</button>
+        </form>
+      </div>
+
+      <!-- Table of Plan -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-lg font-semibold mb-4 text-gray-700">Full Plan</h3>
+        <table class="min-w-full text-left text-sm">
+          <thead class="text-xs uppercase text-gray-600 border-b">
+            <tr>
+              <th class="py-2">Day</th>
+              <th class="py-2">Surah</th>
+              <th class="py-2">Ayahs</th>
+              <th class="py-2">Completed</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            {% for data in datas %}
+            <tr>
+              <td class="py-2">{{ data.day }}</td>
+              <td class="py-2">{{ name }}</td>
+              <td class="py-2">{{ data.start }}–{{ data.end }}</td>
+              {% if data.completed == 0 %}
+                <td class="py-2">❌</td>
+              {% else %}
+                <td class="py-2">✅</td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <main class="relative isolate px-6 lg:px-8">
+      <div class="absolute inset-x-0 -top-40 -z-10 blur-3xl sm:-top-80">
+        <div class="relative left-[calc(50%-11rem)] w-[36.125rem] rotate-[30deg] bg-gradient-to-tr from-pink-300 to-indigo-400 opacity-30 sm:w-[72.1875rem]"></div>
+      </div>
+
+      <div class="mx-auto max-w-2xl py-32 text-center">
+        <h1 class="text-5xl font-bold tracking-tight sm:text-7xl animate-fade-in">Congratulations {{user_name}} for completing Surah {{name}}</h1>
+
+        <h3 class="mt-6 text-lg leading-8 text-gray-600">
+          Now you can create a new plan to memorise another surah
+        </h3>
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <a href="/form" class="rounded-md bg-indigo-600 px-8 py-5 text-xl font-semibold text-white hover:bg-indigo-500">Create a new plan</a>
+      </div>
+
+      <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 blur-3xl sm:top-[calc(100%-30rem)]">
+        <div class="relative left-[calc(50%+3rem)] w-[36.125rem] bg-gradient-to-tr from-pink-300 to-indigo-400 opacity-30 sm:w-[72.1875rem]"></div>
+      </div>
+      </main>
+    {% endif %}
+
+  </div>
+</body>
+</html>
