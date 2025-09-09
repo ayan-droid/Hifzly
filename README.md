@@ -125,5 +125,5 @@ This MVP lays the foundation for significantly more features, including:
 
 ## 🎓 Project Summary
 
-Hifzly was built as a final project for CS50, combining everything I’ve learned this year: backend logic, SQL queries, user authentication, frontend development, API thinking, and product design. It represents not just a working tool, but a vision for what structured Islamic learning can look like when powered by software.
+Hifzly was built as a final project for CS50, combining everything I’ve learned throughout the course: backend logic, SQL queries, user authentication, frontend development, API thinking, and product design. It represents not just a working tool, but a vision for what structured Islamic learning can look like when powered by software.
 
